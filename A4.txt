@@ -1,0 +1,20 @@
+/*
+Text: Algorithms by Sedgwick
+
+2.4.2
+One way to keep track of maximum value in a collection, without sorting it, is to implement a second collection to hold the current tracked max value. It would require more space in the form of a second collection. this would be a trade-off of increased space complexity for less time complexity. Without a second collection, the stack or queue would have to perform a comparison check for max value anytime anew value is inserted into the collection.
+
+
+2.4.4
+Yes. All of the nodes in the tree would be in the right position for a max-oriented heap.
+
+
+2.4.11
+An unordered array is the best option. The insert options, which will be the most numerous, will be in constant time. The remove the maximum operations will be linear time, however there will only be a few of them. Also, the balance of a huge number of constant time operations and a few linear time operations outweighs a heap approach of logarithmic time.
+
+
+2.4.12
+An ordered array is the best option. Find the max operations, which will be the most numerous, will be in constant time. Insert and remove operations will be linear time, however there will only be a few of them. Also, the balance of a huge number of constant time operations and a few linear time operations outweighs a heap approach of logarithmic time.
+
+
+*/
