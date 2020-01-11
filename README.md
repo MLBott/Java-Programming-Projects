@@ -1,7 +1,12 @@
 # Data Structure Fundamentals
 
+## Task
+Understand the fundamentals of Data Structures.
 
-Topics covered:
+## Output
+The repository contains work based on the topics below.
+
+## Criteria
 > Basic OO Programming Techniques
 
 > Use of debuggers and Testing
@@ -39,3 +44,6 @@ Topics covered:
 > Regular Expressions
 
 > Data Compression
+
+## Tech Stack
+> Java
