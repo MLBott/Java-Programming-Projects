@@ -273,33 +273,36 @@ public class MySecondHomework {
 		runTerribleLoop ();
 	}
 
-	/* Test functions --- lot's of similar code! */
+	
+	// testSum() tests the sum() and sumI() methods
 	private static void testSum (String list) {
-		double[] aList = doublesFromString (list);
-		double expected = sumI (aList);
-		double actual = sum (aList);
-		if (! Arrays.equals (aList, doublesFromString (list))) {
-			StdOut.format ("Failed sum([%s]): Array modified\n", list);
-		}
-		if (expected != actual) {
-			StdOut.format ("Failed sum([%s]): Expecting (%.1f) Actual (%.1f)\n", list, expected, actual);
-		}
+	    double[] aList = doublesFromString (list); // convert string to array of doubles
+	    double expected = sumI (aList); // calculate expected result using sumI()
+	    double actual = sum (aList); // calculate actual result using sum()
+	    if (! Arrays.equals (aList, doublesFromString (list))) { // check if array has been modified
+		StdOut.format ("Failed sum([%s]): Array modified\n", list);
+	    }
+	    if (expected != actual) { // compare expected and actual results
+		StdOut.format ("Failed sum([%s]): Expecting (%.1f) Actual (%.1f)\n", list, expected, actual);
+	    }
 	}
+	// testReverse() tests the reverse() and reverseI() methods
 	private static void testReverse (String list) {
-		double[] expected = doublesFromString (list);
-		reverseI (expected);
-		double[] actual = doublesFromString (list);
-		reverse (actual);
-		// != does not do what we want on arrays
-		if (! Arrays.equals (expected, actual)) {
-			StdOut.format ("Failed reverse([%s]): Expecting (%s) Actual (%s)\n", list, Arrays.toString (expected), Arrays.toString (actual));
-		}
+	    double[] expected = doublesFromString (list); // convert string to array of doubles
+	    reverseI (expected); // reverse the array using reverseI()
+	    double[] actual = doublesFromString (list); // convert string to array of doubles
+	    reverse (actual); // reverse the array using reverse()
+	    // != does not do what we want on arrays
+	    if (! Arrays.equals (expected, actual)) { // compare expected and actual results
+		StdOut.format ("Failed reverse([%s]): Expecting (%s) Actual (%s)\n", list, Arrays.toString (expected), Arrays.toString (actual));
+	    }
 	}
+	// testFibonacci() tests the fibonacci() method
 	private static void testFibonacci (long expected, int n) {
-		long actual = fibonacci (n);
-		if (expected != actual) {
-			StdOut.format ("Failed fibonacci(%d): Expecting (%d) Actual (%d)\n", n, expected, actual);
-		}
+	    long actual = fibonacci (n); // calculate actual result using fibonacci()
+	    if (expected != actual) { // compare expected and actual results
+		StdOut.format ("Failed fibonacci(%d): Expecting (%d) Actual (%d)\n", n, expected, actual);
+	    }
 	}
 
 	/* A utility function to create an array of doubles from a string. */
