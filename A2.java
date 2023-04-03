@@ -174,6 +174,13 @@ public class MyFirstHomeworkFor300PartTwo {
 		StdOut.println ("Finished tests");
 	}
 
+	/**  Test function to check the numUnique function.
+	It takes the expected integer value and a string of space-separated doubles as input.
+	It converts the string to an array of doubles using the doublesFromString utility function.
+	It calls the numUnique function with the array and compares the expected and actual values.
+	If the array has been modified, it prints a message to StdOut.
+	If the expected and actual values differ, it prints a message to StdOut.
+	*/
 	private static void testNumUnique (int expected, String list) {
 		double[] aList = doublesFromString (list);
 		int actual = numUnique (aList);
@@ -184,6 +191,14 @@ public class MyFirstHomeworkFor300PartTwo {
 			StdOut.format ("Failed numUnique([%s]): Expecting (%d) Actual (%d)\n", list, expected, actual);
 		}
 	}
+	
+	/** Test function to check the removeDuplicates function.
+	It takes the expected string of space-separated doubles and a string of space-separated doubles as input.
+	It converts the input string to an array of doubles using the doublesFromString utility function.
+	It calls the removeDuplicates function with the array and compares the expected and actual arrays.
+	If the input array has been modified, it prints a message to StdOut.
+	If the expected and actual arrays differ, it prints a message to StdOut.
+	*/
 	private static void testRemoveDuplicates (String expected, String list) {
 		double[] aList = doublesFromString (list);
 		double[] actual = removeDuplicates (aList);
