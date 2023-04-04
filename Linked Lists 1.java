@@ -247,62 +247,91 @@ public class MyLinked1 {
 			StdOut.format ("Failed %s.sizeLoop(): List changed to %s\n", sStart, sEnd);
 		}
 	}	
+	}	
 	private static void testSizeForward (int expected, String sList) {
+		// Create a MyLinked1 list from the given string
 		MyLinked1 list = MyLinked1.of (sList);
+		// Store the initial list as a string
 		String sStart = list.toString ();
+		// Get the size of the list using sizeForward()
 		int actual = list.sizeForward ();
+		// Check if the expected size is equal to the actual size
 		if (expected != actual) {
 			StdOut.format ("Failed %s.sizeForward(): Expecting (%d) Actual (%d)\n", sStart, expected, actual);
 		}
+		// Store the final list as a string
 		String sEnd = list.toString ();
+		// Check if the initial and final lists are equal
 		if (! sStart.equals (sEnd)) {
 			StdOut.format ("Failed %s.sizeForward(): List changed to %s\n", sStart, sEnd);
 		}
 	}	
 	private static void testSizeBackward (int expected, String sList) {
+		// Create a MyLinked1 list from the given string
 		MyLinked1 list = MyLinked1.of (sList);
+		// Store the initial list as a string
 		String sStart = list.toString ();
+		// Get the size of the list using sizeBackward()
 		int actual = list.sizeBackward ();
+		// Check if the expected size is equal to the actual size
 		if (expected != actual) {
 			StdOut.format ("Failed %s.sizeBackward(): Expecting (%d) Actual (%d)\n", sStart, expected, actual);
 		}
+		// Store the final list as a string
 		String sEnd = list.toString ();
+		// Check if the initial and final lists are equal
 		if (! sStart.equals (sEnd)) {
 			StdOut.format ("Failed %s.sizeBackward(): List changed to %s\n", sStart, sEnd);
 		}
 	}
 	private static void testPositionOfFirstFiveFromBeginning (int expected, String sList) {
+		// Create a MyLinked1 list from the given string
 		MyLinked1 list = MyLinked1.of (sList);
+		// Store the initial list as a string
 		String sStart = list.toString ();
+		// Get the position of the first five elements from the beginning of the list
 		int actual = list.positionOfFirstFiveFromBeginning ();
-		//if ((expected >= 0 && expected != actual) || (expected < 0 && actual > 0)) {
+		// Check if the expected position is equal to the actual position
 		if (expected != actual) {
 			StdOut.format ("Failed %s.positionOfFirstFiveFromBeginning(): Expecting (%d) Actual (%d)\n", sStart, expected, actual);
 		}
+		// Store the final list as a string
 		String sEnd = list.toString ();
+		// Check if the initial and final lists are equal
 		if (! sStart.equals (sEnd)) {
 			StdOut.format ("Failed %s.positionOfFirstFiveFromBeginning(): List changed to %s\n", sStart, sEnd);
 		}
 	}
 	private static void testPositionOfLastFiveFromEnd (int expected, String sList) {
+		// Create a MyLinked1 list from the given string
 		MyLinked1 list = MyLinked1.of (sList);
+		// Store the initial list as a string
 		String sStart = list.toString ();
+		// Get the position of the last five elements from the end of the list
 		int actual = list.positionOfLastFiveFromEnd ();
-		//if ((expected >= 0 && expected != actual) || (expected < 0 && actual > 0)) {
+		// Check if the expected position is equal to the actual position
 		if (expected != actual) {
 			StdOut.format ("Failed %s.testPositionOfLastFiveFromEnd(): Expecting (%d) Actual (%d)\n", sStart, expected, actual);
 		}
+		// Store the final list as a string
 		String sEnd = list.toString ();
+		// Check if the initial and final lists are equal
 		if (! sStart.equals (sEnd)) {
 			StdOut.format ("Failed %s.testPositionOfLastFiveFromEnd(): List changed to %s\n", sStart, sEnd);
 		}
 	}
 	private static void testDeleteFirst (String expected, String sList) {
+		// Create a MyLinked1 list from the given expected string
 		String sExpected = MyLinked1.of (expected).toString ();
+		// Create a MyLinked1 list from the given string
 		MyLinked1 list = MyLinked1.of (sList);
+		// Store the initial list as a string
 		String sStart = list.toString ();
+		// Delete the first element in the list
 		list.deleteFirst ();
+		// Store the final list as a string
 		String sEnd = list.toString ();
+		// Check if the expected and final lists are equal
 		if (! sExpected.equals (sEnd)) {
 			StdOut.format ("Failed %s.deleteFirst(): Expecting %s Actual %s\n", sStart, sExpected, sEnd);
 		}
