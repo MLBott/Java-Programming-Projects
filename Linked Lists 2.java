@@ -184,11 +184,14 @@ public class MyLinked2 {
 		return result;
 	}
 	
+	// static void showError (String message) 
 	static void showError (String message) {
 		Trace.draw ();
 		StdOut.println (message);
 		//throw new Error (); // stops execution
 	}
+
+	// private static void checkInvariants (String message, MyLinked2 list) 
 	private static void checkInvariants (String message, MyLinked2 list) {
 		java.util.HashSet<Node> visited = new java.util.HashSet<>();				
 		int num = 0;
@@ -205,12 +208,16 @@ public class MyLinked2 {
 			showError (String.format ("%s: N=%d, but there are %d Nodes.", message, list.N, num));
 		}
 	}
+
+	// private static void check (String message, MyLinked2 actual, String expected) 
 	private static void check (String message, MyLinked2 actual, String expected) {
 		checkInvariants (message, actual);
 		if (!expected.equals (actual.toString ())) {
 			showError (String.format ("%s: expected=%s, actual=%s", message, expected, actual.toString ()));
 		}
 	}
+
+	// private static void testDelete (int k, String list, String expected) 
 	private static void testDelete (int k, String list, String expected) {
 		MyLinked2 actual = MyLinked2.of (list);
 		String message = String.format ("[ %s ].delete( %d )", list, k);
@@ -226,12 +233,16 @@ public class MyLinked2 {
 		}
 		check (message, actual, expected);
 	}
+
+	// private static void testReverse (String list, String expected) 
 	private static void testReverse (String list, String expected) {
 		MyLinked2 actual = MyLinked2.of (list);
 		actual.reverse ();
 		String message = String.format ("[ %s ].reverse( )", list);
 		check (message, actual, expected);
 	}
+
+	// private static void testRemove (double item, String list, String expected) 
 	private static void testRemove (double item, String list, String expected) {
 		MyLinked2 actual = MyLinked2.of (list);
 		actual.remove (item);
