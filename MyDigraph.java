@@ -207,10 +207,11 @@ public class MyDigraph {
 	// isTree:     [0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1]
 	// hasCycle:   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-	
+	// This class represents a test case for a directed graph
 	private static class Test {
-		String name;
-		MyDigraph y;
+		String name; // Name of the test case
+		MyDigraph y; // Directed graph associated with the test case
+		// Constructor using a filename to initialize the directed graph
 		public Test (String name, String filename) {
 			this.name = name;
 			this.y = new MyDigraph (new In (filename));
@@ -220,7 +221,7 @@ public class MyDigraph {
 			this.y = new MyDigraph (G);
 		}
 	}
-	
+	// Method to convert a boolean array to a string
 	public static String booleanArraytoString (boolean[] a) {
 		StringBuilder sb = new StringBuilder ();
 		sb.append ("[");
@@ -234,24 +235,26 @@ public class MyDigraph {
 		sb.append ("]");
 		return sb.toString ();
 	}	
-	
+	// Main method to run the tests
 	public static void main (String[] args) {
-		StdRandom.setSeed (0);
-		MyDigraph.DEBUG = false;
-		
+		StdRandom.setSeed (0); // Set random seed for reproducibility
+		MyDigraph.DEBUG = false; // Disable debug mode
+		// Create a test case using a file
 		Test t = new Test("tinyDGex2", "data/tinyDGex2.txt");
-		MyDigraph Y = t.y;
-		StdOut.println (t.name);
-		Y.toGraphviz (t.name + ".png");
+		MyDigraph Y = t.y; // Get the directed graph from the test case
+		StdOut.println (t.name); // Print the test case name
+		Y.toGraphviz (t.name + ".png"); // Generate graph visualization
+		// Initialize arrays to store results for each vertex
 		boolean[][] marked = new boolean[Y.V][];
 		boolean[] isTree = new boolean[Y.V];
 		boolean[] hasCycle = new boolean[Y.V];
+		// Calculate results for each vertex
 		for (int v=0; v<Y.V; v++) {
 			marked[v] = Y.mark (v);
 			isTree[v] = Y.isTree (v);
 			hasCycle[v] = Y.hasCycle (v);
 		}
-			
+		// Expected results for comparison	
 		String[] expected_result = 
 		{
 			"[1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0]",
@@ -271,12 +274,12 @@ public class MyDigraph {
 		};
 		
 		int v = 0;
+		// Print results and compare with expected results
 		for (v=0; v<Y.V; v++) 
 		{
 			if ( v > 0 ) StdOut.format(", ");
 			StdOut.format ("%s(%d)", Y.node[v].key, v );
 		}
-		
 		StdOut.println ();
 		StdOut.println ();
 
@@ -294,7 +297,7 @@ public class MyDigraph {
 		String hascycle_result = booleanArraytoString (hasCycle);
 		String hascycle_validate = hascycle_result.equals(expected_result[++v]) ? "Correct" : "ERROR: Expecting " + expected_result[v];
 		StdOut.format ("hasCycle:   %s  - %s\n", hascycle_result, hascycle_validate);
-		
+		// Print final results
 		StdOut.println ();
 		
 	}
