@@ -105,9 +105,11 @@ public class MyFB {
 			return null;
 		}
 	}
+    // makePerson returns a Person object with the given name and age
 	public static Person makePerson (String name, int age) {
 		return new Person (name, age);
 	}
+    // Person is a class with a name and age
 	static class Person {
 		String name;
 		int age;
@@ -115,6 +117,7 @@ public class MyFB {
 			this.name = name;
 			this.age = age;
 		}
+        // returns a string representation of the person
 		public String toString () {
 			return name + " " + age;
 		}
@@ -137,7 +140,7 @@ public class MyFB {
 				return false;
 			}
 		}
-	
+        // returns a hash code for the person
 		@Override
 		public int hashCode () {
 			// TODO
@@ -231,7 +234,7 @@ public class MyFB {
 		
 		return null;
 	}
-
+    // hashTest tests the hashCode and equals methods of Person
 	public static void hashTest () {
 		Trace.showBuiltInObjects (true);
 		//Trace.run ();
@@ -251,7 +254,7 @@ public class MyFB {
 		StdOut.println( "  Equal Test: " + (eq ? "equal" : "not equal") );
 		StdOut.println( "  Hash Test: " + (hash ? "equal" : "not equal") );
 	}
-	
+	// main method for testing
 	public static void main (String[] args) {
 		Trace.showBuiltInObjects (true);
 		//Trace.run ();
