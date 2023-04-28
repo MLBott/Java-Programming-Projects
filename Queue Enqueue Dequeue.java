@@ -20,7 +20,7 @@ public class MyDeque {
 	Node first = null;
 	Node last = null;
 	int N = 0;
-
+    // Sets up the node class variables
 	static class Node {
 		public Node() { }
 		public double item;
@@ -31,9 +31,8 @@ public class MyDeque {
 	public MyDeque ()         { };
 	public boolean isEmpty () { return N == 0; }
 	public int size ()        { return N; }
-
+    // Pushes the item to the left of the deque
 	public void pushLeft (double item) {
-		// TODO
 		Node x = new Node();
 		x.item = item;
 		if (isEmpty()) {
@@ -48,7 +47,7 @@ public class MyDeque {
 		N++;
 
 	}
-
+    // Pushes the item to the right of the deque
 	public void pushRight (double item) {
 		// TODO
 		Node x = new Node();
@@ -68,7 +67,7 @@ public class MyDeque {
         }
         N++;
 	}
-
+    // Pops the item from the left of the deque
 	public double popLeft () {
 		if (N == 0) throw new NoSuchElementException ();
 		double result = first.item;
@@ -82,7 +81,7 @@ public class MyDeque {
         return result;
 		// TODO
 	}
-
+    // Pops the item from the right of the deque
 	public double popRight () {
 		if (N == 0) throw new NoSuchElementException ();
 		double result = last.item;
@@ -165,7 +164,7 @@ public class MyDeque {
         return result;
 		
 	}
-
+    // Returns the kth element from the left (where k is between 0 and N-1).
 	public MyDeque (String s) {
 		String[] nums = s.split (" ");
 		for (int i = nums.length-1; i >= 0; i--) {
@@ -174,6 +173,7 @@ public class MyDeque {
 			} catch (NumberFormatException e) {	}
 		}
 	}
+    // Returns the string representation of the deque
 	public String toString () { 
 		DecimalFormat format = new DecimalFormat ("#.###");
 		StringBuilder result = new StringBuilder ("[ ");
@@ -185,7 +185,7 @@ public class MyDeque {
 		return result.toString ();
 	}
 
-
+    // Returns the string representation of the deque in reverse order
 	public static void checkInvariants (String message, MyDeque that) {
 		int N = that.N;
 		MyDeque.Node first = that.first;
@@ -234,6 +234,7 @@ public class MyDeque {
 			}
 		}
 	}
+    // Returns the string representation of the deque in reverse order
 	private static void check (String message, MyDeque actual, String expected) {
 		checkInvariants (message, actual);
 		if (expected != null) {
@@ -242,18 +243,20 @@ public class MyDeque {
 			}
 		}
 	}
+    // Returns the string representation of the deque in reverse order
 	private static void check (String message, MyDeque actual, String expected, double dActual, double dExpected) {
 		if (dExpected != dActual) {
 			showError ("Expected \"" + dExpected + "\", got \"" + dActual + "\"");
 		}
 		check (message, actual, expected);
 	}
-	
+	// Returns the string representation of the deque in reverse order
 	private static void showError (String message) {
 		Trace.draw ();
 		StdOut.println (message);
 		throw new Error (); // stops execution
 	}
+    // Returns the string representation of the deque in reverse order
 	public static void main (String args[]) {
 		//Trace.drawStepsOfMethod ("main");
 		Trace.run ();
