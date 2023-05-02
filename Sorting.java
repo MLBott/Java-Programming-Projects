@@ -7,6 +7,8 @@ import stdlib.*;
  * at the values of the top two cards, to exchange the top two cards,
  * and to move the top card to the bottom of the deck.
  */
+// sorts a given MyDeck object d using a modified bubble sort algorithm by 
+// repeatedly comparing and swapping adjacent cards until the entire deck is sorted
 public class MyDeckSort {
 	public static void sort (MyDeck d) {
 		boolean print = true;
@@ -34,8 +36,9 @@ public class MyDeckSort {
 		// You can use d.toString() for that:
 		//   StdOut.format ("i=%-3d %s\n", i, d.toString ());
 
-
+	// declares a private static double variable time
 	private static double time;
+	// counts the number of operations performed on the given MyDeck object d
 	private static void countops (MyDeck d) {
 		boolean print = true;
 
@@ -46,6 +49,7 @@ public class MyDeckSort {
 		if (print) StdOut.println (d.toString ());
 		d.isSorted ();
 	}
+	// main method that creates a MyDeck object d of size 10 and counts the number of operations
 	public static void main (String[] args) {
 		int N = 10;
 		MyDeck d = new MyDeck (N);
@@ -89,6 +93,7 @@ class MyDeck {
 	public int size () {
 		return N;
 	}
+	// creates a MyDeck object of size N and shuffles the cards
 	public MyDeck (int N) {
 		this.N = N;
 		this.top = 0;
@@ -98,12 +103,14 @@ class MyDeck {
 			a[i] = i;
 		StdRandom.shuffle (a);
 	}
+	// compares the top two cards in the deck
 	public boolean topGreaterThanNext () {
 		int i = a[top];
 		int j = a[(top + 1) % N];
 		ops += 2;
 		return i > j;
 	}
+	// swaps the top two cards in the deck
 	public void swapTopTwo () {
 		int i = a[top];
 		int j = a[(top + 1) % N];
@@ -111,10 +118,12 @@ class MyDeck {
 		a[(top + 1) % N] = i;
 		ops += 4;
 	}
+	// moves the top card to the bottom of the deck
 	public void moveTopToBottom () {
 		top = (top + 1) % N;
 		ops += 1;
 	}
+	// returns a string representation of the deck
 	public String toString () {
 		StringBuilder b = new StringBuilder ();
 		b.append ('[');
@@ -125,6 +134,7 @@ class MyDeck {
 			b.append (", ");
 		}
 	}
+	// checks if the deck is sorted
 	public void isSorted () {
 		boolean print = false;
 		long theOps = ops; // don't count the operations require by isSorted
