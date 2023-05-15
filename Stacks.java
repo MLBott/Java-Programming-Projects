@@ -101,7 +101,7 @@ public class MyDequeUsingStacks<T> {
 			from.push(tmp.pop());
 		}
 	}
-
+	// removes item from the left stack
 	public T popLeft () {
 		if (isEmpty()) { throw new NoSuchElementException(); }
 		if (sl.isEmpty ()) { 
@@ -111,7 +111,7 @@ public class MyDequeUsingStacks<T> {
 		}
 		return sl.pop ();
 	}
-
+	// removes item from the right stack
 	public T popRight () {
 		if (isEmpty()) { throw new NoSuchElementException(); }
 		if (sr.isEmpty ()) { 
@@ -121,7 +121,7 @@ public class MyDequeUsingStacks<T> {
 		}
 		return sr.pop ();
 	}
-
+	// used to print out the content of the stack
 	public String toString () {
 		if (isEmpty ()) return "[ ]";
 
@@ -142,6 +142,7 @@ public class MyDequeUsingStacks<T> {
 		sb.append ("]");
 		return sb.toString ();
 	}
+	// check methods that test code
 	private void check (String expected) {
 		if (expected != null) {
 			if (!expected.equals (this.toString ())) throw new Error ("Expected \"" + expected + "\", got \"" + this + "\"");
@@ -244,7 +245,7 @@ public class MyDequeUsingStacks<T> {
 		
 		StdOut.println("Finished correctness test.");
 	}
-
+	// Performance test
 	private static void performanceTest() {
 		int MIN = 2000;
 		int MAX = 4096000;		
@@ -255,6 +256,7 @@ public class MyDequeUsingStacks<T> {
 			prev = time;
 		}
 	}
+	// Time trial
 	private static double timeTrial(int N) {
 		int NUM_TRIALS = 1;
 		MyDequeUsingStacks<Integer> d1 = new MyDequeUsingStacks<> ();
